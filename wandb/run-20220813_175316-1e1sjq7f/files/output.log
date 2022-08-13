@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "C:/Users/ayber/PycharmProjects/DeepLearningDataScienceProject/cycleGAN.py", line 37, in <module>
-    X = next(iter(train_X))
-KeyboardInterrupt

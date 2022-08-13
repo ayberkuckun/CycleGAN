@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "C:/Users/ayber/PycharmProjects/DeepLearningDataScienceProject/cycleGAN.py", line 34, in <module>
-    train_X, train_Y = helpers.preprocessing_helper.preprocess_dataset_train(train_X_raw, train_Y_raw, seed)
-  File "C:\Users\ayber\PycharmProjects\DeepLearningDataScienceProject\helpers\preprocessing_helper.py", line 11, in preprocess_dataset_train
-    processed_data = data.cache().map(
-KeyboardInterrupt
