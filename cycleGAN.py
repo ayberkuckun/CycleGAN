@@ -16,9 +16,6 @@ from network_helper import GeneratorModel, DiscriminatorModel
 seed = 42
 setting_helper.set_settings(seed)
 
-# Start wandb for experiment tracking.
-wandb_helper.start(id=None)
-
 # Get Arguments.
 args = argument_helper.get_args()
 
@@ -297,11 +294,6 @@ if use_checkpoint and ckpt_manager.latest_checkpoint:
     status.assert_consumed()
     status.assert_existing_objects_matched()
     print(f'Latest checkpoint restored!! \n {ckpt_manager.latest_checkpoint}')
-    wandb.config.update({"epochs": EPOCH}, allow_val_change=True)
-
-else:
-    wandb.config.epochs = EPOCH
-    wandb.config.batch_size = 1
 
 
 def generate_images(model, test_input):
