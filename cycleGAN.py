@@ -355,9 +355,6 @@ for epoch in range(0, EPOCH + 1):
 
         loss_dict = train_step(x_real, y_real)
 
-        if i % 5 == 0:
-            wandb.log(loss_dict)
-
             # if i % 100 == 0:
     generate_images2(generator_g, X, image_path + "summer", epoch)
     generate_images2(generator_f, Y, image_path + "winter", epoch)
