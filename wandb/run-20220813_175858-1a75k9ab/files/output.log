@@ -1,0 +1,10 @@
+Found 1231 files belonging to 1 classes.
+Found 962 files belonging to 1 classes.
+Found 309 files belonging to 1 classes.
+Found 238 files belonging to 1 classes.
+Traceback (most recent call last):
+  File "C:/Users/ayber/PycharmProjects/DeepLearningDataScienceProject/cycleGAN.py", line 34, in <module>
+    train_X, train_Y = helpers.preprocessing_helper.preprocess_dataset_train(train_X_raw, train_Y_raw, dataset_name, seed)
+  File "C:\Users\ayber\PycharmProjects\DeepLearningDataScienceProject\helpers\preprocessing_helper.py", line 12, in preprocess_dataset_train
+    preprocess_image_train_2(), num_parallel_calls=AUTOTUNE).cache().shuffle(
+TypeError: preprocess_image_train_2() missing 1 required positional argument: 'image'

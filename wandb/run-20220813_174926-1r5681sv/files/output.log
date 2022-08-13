@@ -1,0 +1,33 @@
+Found 1231 files belonging to 1 classes.
+Found 962 files belonging to 1 classes.
+Found 309 files belonging to 1 classes.
+Found 238 files belonging to 1 classes.
+Traceback (most recent call last):
+  File "C:/Users/ayber/PycharmProjects/DeepLearningDataScienceProject/cycleGAN.py", line 32, in <module>
+    train_X, train_Y = helpers.preprocessing_helper.preprocess_dataset_train(train_X_raw, train_Y_raw, seed)
+  File "C:\Users\ayber\PycharmProjects\DeepLearningDataScienceProject\helpers\preprocessing_helper.py", line 11, in preprocess_dataset_train
+    processed_data = data.cache().map(
+  File "C:\Users\ayber\PycharmProjects\DeepLearningInDataScience\venv\lib\site-packages\tensorflow\python\data\ops\dataset_ops.py", line 2018, in map
+    return ParallelMapDataset(
+  File "C:\Users\ayber\PycharmProjects\DeepLearningInDataScience\venv\lib\site-packages\tensorflow\python\data\ops\dataset_ops.py", line 5234, in __init__
+    self._map_func = structured_function.StructuredFunctionWrapper(
+  File "C:\Users\ayber\PycharmProjects\DeepLearningInDataScience\venv\lib\site-packages\tensorflow\python\data\ops\structured_function.py", line 271, in __init__
+    self._function = fn_factory()
+  File "C:\Users\ayber\PycharmProjects\DeepLearningInDataScience\venv\lib\site-packages\tensorflow\python\eager\function.py", line 3070, in get_concrete_function
+    graph_function = self._get_concrete_function_garbage_collected(
+  File "C:\Users\ayber\PycharmProjects\DeepLearningInDataScience\venv\lib\site-packages\tensorflow\python\eager\function.py", line 3036, in _get_concrete_function_garbage_collected
+    graph_function, _ = self._maybe_define_function(args, kwargs)
+  File "C:\Users\ayber\PycharmProjects\DeepLearningInDataScience\venv\lib\site-packages\tensorflow\python\eager\function.py", line 3292, in _maybe_define_function
+    graph_function = self._create_graph_function(args, kwargs)
+  File "C:\Users\ayber\PycharmProjects\DeepLearningInDataScience\venv\lib\site-packages\tensorflow\python\eager\function.py", line 3130, in _create_graph_function
+    func_graph_module.func_graph_from_py_func(
+  File "C:\Users\ayber\PycharmProjects\DeepLearningInDataScience\venv\lib\site-packages\tensorflow\python\framework\func_graph.py", line 1161, in func_graph_from_py_func
+    func_outputs = python_func(*func_args, **func_kwargs)
+  File "C:\Users\ayber\PycharmProjects\DeepLearningInDataScience\venv\lib\site-packages\tensorflow\python\data\ops\structured_function.py", line 248, in wrapped_fn
+    ret = wrapper_helper(*args)
+  File "C:\Users\ayber\PycharmProjects\DeepLearningInDataScience\venv\lib\site-packages\tensorflow\python\data\ops\structured_function.py", line 177, in wrapper_helper
+    ret = autograph.tf_convert(self._func, ag_ctx)(*nested_args)
+  File "C:\Users\ayber\PycharmProjects\DeepLearningInDataScience\venv\lib\site-packages\tensorflow\python\autograph\impl\api.py", line 692, in wrapper
+    raise e.ag_error_metadata.to_exception(e)
+TypeError: in user code:
+    TypeError: tf__preprocess_image_train() missing 1 required positional argument: 'label'

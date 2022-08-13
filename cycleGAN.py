@@ -3,33 +3,36 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
+import wandb
 from tensorflow.keras.optimizers import Adam
 from tqdm import tqdm
 
-import argument_helper
-import dataset_helper
-import preprocessing_helper
-import setting_helper
-import wandb
-import wandb_helper
-from network_helper import GeneratorModel, DiscriminatorModel
+import helpers.argument_helper
+import helpers.dataset_helper
+import helpers.preprocessing_helper
+import helpers.setting_helper
+import helpers.wandb_helper
+from helpers.network_helper import GeneratorModel, DiscriminatorModel
 
 # Settings for efficent training.
 seed = 42
-setting_helper.set_settings(seed)
+helpers.setting_helper.set_settings(seed)
 
 # Start wandb for experiment tracking.
-wandb_helper.start(id=None)
+helpers.wandb_helper.start(id=None)
 
 # Get Arguments.
-args = argument_helper.get_args()
+args = helpers.argument_helper.get_args()
 
-# Get dataset.
-dataset = "horse2zebra"
-train_X_raw, train_Y_raw, test_X_raw, test_Y_raw = dataset_helper.get_dataset(dataset, seed)
+# Get Dataset.
+dataset_name = "summer2winter_yosemite"
+# dataset_name ="apple2orange"
+# dataset_name = "horse2zebra"
+train_X_raw, train_Y_raw, test_X_raw, test_Y_raw = helpers.dataset_helper.get_dataset(dataset_name, seed)
 
-train_X, train_Y = preprocessing_helper.preprocess_dataset_train(train_X_raw, train_Y_raw, seed)
-test_X, test_Y = preprocessing_helper.preprocess_dataset_test(test_X_raw, test_Y_raw, seed)
+# Process Dataset.
+train_X, train_Y = helpers.preprocessing_helper.preprocess_dataset_train(train_X_raw, train_Y_raw, dataset_name, seed)
+# test_X, test_Y = helpers.preprocessing_helper.preprocess_dataset_test(test_X_raw, test_Y_raw, dataset_name, seed)
 
 X = next(iter(train_X))
 Y = next(iter(train_Y))

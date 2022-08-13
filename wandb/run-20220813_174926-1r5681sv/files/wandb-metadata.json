@@ -1,0 +1,24 @@
+{
+    "os": "Windows-10-10.0.19044-SP0",
+    "python": "3.8.10",
+    "heartbeatAt": "2022-08-13T14:49:30.093109",
+    "startedAt": "2022-08-13T14:49:26.526888",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "gpu_count": 1,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "C:/Users/ayber/PycharmProjects/DeepLearningDataScienceProject/cycleGAN.py",
+    "codePath": "cycleGAN.py",
+    "git": {
+        "remote": "git@github.com:/ayberkuckun/DeepLearningDataScienceProject.git",
+        "commit": "0934fe12efec8adc010817c5ca0e8a5f1a9c7a48"
+    },
+    "email": "44614567+ayberkuckun@users.noreply.github.com",
+    "root": "C:/Users/ayber/PycharmProjects/DeepLearningDataScienceProject",
+    "host": "MSI",
+    "username": "ayber",
+    "executable": "C:\\Users\\ayber\\PycharmProjects\\DeepLearningInDataScience\\venv\\Scripts\\python.exe"
+}

@@ -1,5 +1,5 @@
-import tensorflow_datasets as tfds
 import tensorflow as tf
+import tensorflow_datasets as tfds
 
 
 def get_dataset(dataset, seed):
@@ -24,7 +24,7 @@ def get_dataset(dataset, seed):
         #                         with_info=True)
 
         train_X = tf.keras.utils.image_dataset_from_directory(
-            "summer2winter_yosemite/train/trainA/",
+            "datasets/summer2winter_yosemite/train/trainA/",
             labels=None,
             image_size=(256, 256),
             batch_size=None,
@@ -33,7 +33,7 @@ def get_dataset(dataset, seed):
         )
 
         train_Y = tf.keras.utils.image_dataset_from_directory(
-            "summer2winter_yosemite/train/trainB/",
+            "datasets/summer2winter_yosemite/train/trainB/",
             labels=None,
             image_size=(256, 256),
             batch_size=None,
@@ -42,17 +42,20 @@ def get_dataset(dataset, seed):
         )
 
         test_X = tf.keras.utils.image_dataset_from_directory(
-            "summer2winter_yosemite/test/testA/",
+            "datasets/summer2winter_yosemite/test/testA/",
             labels=None,
             image_size=(256, 256),
             batch_size=None,
         )
 
         test_Y = tf.keras.utils.image_dataset_from_directory(
-            "summer2winter_yosemite/test/testB/",
+            "datasets/summer2winter_yosemite/test/testB/",
             labels=None,
             image_size=(256, 256),
             batch_size=None,
         )
 
         return train_X, train_Y, test_X, test_Y
+
+    else:
+        raise ValueError('Dataset not found')
