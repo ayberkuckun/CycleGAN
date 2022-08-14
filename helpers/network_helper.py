@@ -199,3 +199,44 @@ class DiscriminatorModel(tf.keras.Model):
     def build_graph(self):
         x = tf.keras.layers.Input(shape=(256, 256, 3), name='Input')
         return tf.keras.Model(inputs=[x], outputs=self.call(x))
+
+
+class LinearDecay(tf.keras.optimizers.schedules.LearningRateSchedule):
+    def __init__(self, lr_init, steps_total, decay_start_step):
+        super(LinearDecay, self).__init__()
+        self.lr_init = lr_init
+        self.steps_total = steps_total
+        self.decay_start_step = decay_start_step
+        self.current_lr = tf.Variable(initial_value=lr_init, trainable=False, dtype=tf.float32)
+
+    def __call__(self, step):
+        self.current_lr.assign(tf.cond(
+            step >= self.decay_start_step,
+            true_fn=lambda: self.lr_init - (step - self.decay_start_step) * (
+                    self.lr_init / (self.steps_total - self.decay_start_step)),
+            false_fn=lambda: self.lr_init
+        ))
+
+        return self.current_lr
+
+
+class FakeImagePool:
+    def __init__(self, size=50):
+        self.size = size
+        self.pool = []
+
+    def __call__(self, fake_images):
+        out_items = []
+
+        for f_im in fake_images:
+            if len(self.pool) < self.size:
+                self.pool.append(f_im)
+                out_items.append(f_im)
+            else:
+                if np.random.rand() > 0.5:
+                    replace_idx = np.random.randint(0, len(self.pool))
+                    out_items.append(self.pool[replace_idx])
+                    self.pool[replace_idx] = f_im
+                else:
+                    out_items.append(f_im)
+        return tf.stack(out_items, axis=0)
